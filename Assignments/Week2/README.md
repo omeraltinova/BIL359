@@ -1,0 +1,1 @@
+Hafta 2 ödev
