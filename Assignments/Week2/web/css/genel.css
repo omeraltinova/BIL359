@@ -57,8 +57,9 @@
 		align-items: center;
 		margin-top: 20px;
 		column-gap: 20px;
-		width: 90%;
+		width: 95%;
 		background-color:rgb(0, 242, 255);
+		border-radius: 12px;
 
 	}
 	#logo{
@@ -69,25 +70,28 @@
 		margin-bottom: 20px;
 		background-color:rgb(255, 255, 255);
 		align-items: center;
+		border-radius: 12px;
 
 	}
 	
 	
 	#content{
 		margin:10px 0;
-		width: 90%;
+		width: 95%;
 		height:auto;
 		min-height: 60%;
 		background-color:#F3E8FF;
+		border-radius: 12px;
 
 	}
 	#footer{
 			
 		margin:10px 0px;
-		width:90%;
+		width:95%;
 		height:auto;
 		min-height: 15%;
 		background-color:#60A5FA;
+		border-radius: 12px;
 
 	}
 
