@@ -27,8 +27,12 @@
 		color:rgb(227, 7, 7);
 		text-decoration: none;
 		font-weight: 600;
+		margin-right: 50px;
 
 		}
+	#login a:hover{
+		color: rgb(0, 26, 255);
+	}
 
 
 	#header{
@@ -39,7 +43,6 @@
 		margin-top:20px;
 		column-gap: 20px;
 		width: 90%;
-		height: 200px;
 		background-color:rgb(0, 242, 255);
 
 	}
@@ -54,20 +57,17 @@
 	
 	
 	#content{
-	
-		width:90%;
+		margin:10px 0;
+		width: 90%;
 		height:700px;
-		float:left;
-		margin:10px 0px 10px 50px;
 		background-color:rgb(192, 255, 194);
 
 	}
 	#footer{
 			
-		margin:10px 0px 10px 50px;
+		margin:10px 0px;
 		width:90%;
 		height:90px;
-		float:left;
 		background-color:rgb(225, 90, 6);
 
 	}
