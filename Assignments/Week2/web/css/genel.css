@@ -1,14 +1,13 @@
 	.body{
 		background-color: rgb(70, 5, 199);
- 
 	}
 	
 	#container{
-
 		width:100%;
 		height:95%;
 		margin: 0 auto;
 		background-color:rgb(0, 81, 255);
+		border-radius: 16px;
 
 	}
 	#login-container{
@@ -76,7 +75,8 @@
 	#content{
 		margin:10px 0;
 		width: 90%;
-		height:700px;
+		height:auto;
+		min-height: 60%;
 		background-color:rgb(192, 255, 194);
 
 	}
@@ -84,23 +84,36 @@
 			
 		margin:10px 0px;
 		width:90%;
-		height:90px;
+		height:auto;
+		min-height: 15%;
 		background-color:rgb(225, 90, 6);
 
 	}
 
 
-	#login-card{
-		color: aqua;
-	}
-
+	#login-card,
 	#register-card{
-		color: aqua;
+		background-color: aqua;
+		min-height: 320px;
+		padding: 12px;
+		border-radius: 16px;
+		text-align: center;
+		box-shadow: 0px 8px 24px;
+	}
+	#auth-text{
+		margin: 0 0 12px 0;
+  		font-size: 30px;
+  		font-weight: 700;
+		color:maroon;
 	}
 	#auth-grid{
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 20px;
+		width: 800px;
 		align-items: start;
 		justify-items: stretch;
+		justify-content: center;
+		max-width: 800px;
+		margin: 0 auto;
 	}
