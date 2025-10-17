@@ -24,15 +24,19 @@
 		margin: 0;
 		padding: 0;
 		display: flex;
-		gap: 16px;
+		gap: 24px;
 		justify-content: center;
+		font-size: 24px;
 	}
 	nav a{
 		color: #615dee;
-		font-weight: 800;
+		font-weight: 1000;
+		font-size: 24px;
+		text-decoration: none;
 	}
 	nav a:hover{
 		color:blue;
+		text-decoration: underline;
 	}
 	#login a{
 		display: inline-block;
@@ -40,20 +44,22 @@
 		border-radius: 8px;
 		background: white;
 		color:#1b82de;
-		text-decoration: none;
+		text-decoration:none;
 		font-weight: 600;
 		margin-right: 50px;
+		font-size: 24px;
 
 		}
 	#login a:hover{
 		color: rgb(0, 26, 255);
+		text-decoration: underline;
 	}
 
 
 	#header{
 		
 		display: grid;
-		grid-template-columns: 150px 1fr auto;
+		grid-template-columns: auto 1fr auto;
 		align-items: center;
 		margin-top: 20px;
 		column-gap: 20px;
