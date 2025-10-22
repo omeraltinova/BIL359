@@ -79,3 +79,40 @@ out/
 ~$*.doc*
 ~$*.xls*
 ~$*.ppt*
+
+# ------------------------------
+# .NET / Visual Studio / dotnet
+# ------------------------------
+.vs/
+**/[Bb]in/
+**/[Oo]bj/
+**/[Ll]og/
+TestResults/
+artifacts/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# Publish profiles (user secrets)
+Properties/PublishProfiles/*.pubxml.user
+*.pubxml.user
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+
+# Local SQL with secrets (do not commit real credentials)
+Assignments/Week3/Week3.Web/db/user.sql
+Assignments/Week3/Week3.Web/db/*.local.sql
+**/*secret*.sql
