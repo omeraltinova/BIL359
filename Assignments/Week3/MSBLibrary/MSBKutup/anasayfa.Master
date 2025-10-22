@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="anasayfa.master.cs" Inherits="MSBKutup.anasayfa" %>
+
+<!DOCTYPE html>
+
+
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+
+</head>
+<body>
+  
+    
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1MmRkUHwbi9e9GOm5CQXYjhDyVgw9UAY=" />
+</div>
+
+<div id="container">
+<div id="top">
+
+<a href="http://www.medeniyet.edu.tr" >  
+<img src="images/logo.png" 
+style="width:100px;height:100px;" >
+
+</a>
+
+  <h1 style="float:right;margin-right:300px;">
+    	İMU Kütüphanesi</h1>
+</div>
+
+<div id="main">
+
+
+
+<div id="title"></div>
+	
+	<div id="navbox">
+	<ul>
+		<li></li>
+		<li></li>
+		<li ><a href="index.aspx">ANA SAYFA</a></li>
+		<li><a href="kitap.aspx">Kitaplar</a></li>
+		<li><a href="uye.aspx">Üye Ol</a></li>
+		<li><a href="giris.aspx">Üye Girişi</a></li>
+		<li></li>
+	</ul>
+</div>
+
+	
+
+	  <form id="form1" runat="server">
+     
+<div id="content">
+ 
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</form>
+
+	
+
+
+
+<div id="content2" class="clear"></div>
+
+	<div id="navbottom">
+		<ul>
+		<li><a href="default.aspx">ANA SAYFA</a></li>
+		
+		</ul>
+
+	</div>
+
+</div>
+</div>
+
+
+</body>
+
+
+
+</body>
+</html>
