@@ -1,0 +1,95 @@
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title> Admin Paneli</title>
+	<link rel="shortcut icon" type="image/png" href="../logo.png">
+	<link rel="stylesheet" href="../css/genel.css">
+	<link rel="stylesheet" href="../css/admin.css">
+	</head>
+
+	<body class="body">
+	<center>
+	<div id="container">
+
+	<div id="header">
+		<div id="logo">
+			<a target="_blank" href="https://www.medeniyet.edu.tr">
+			<img style="margin-top:15px" src="../logo.png" alt="imü logo"></a>
+		</div>
+
+	<nav aria-label="Ana menü">
+		<ul class="menu">
+			<li><a href="../index.html">Ana sayfa</a></li>
+			<li><a href="../about.html">Hakkında</a></li>
+			<li><a href="../kitap.html">Kitap</a></li>
+			<li><a href="./index.html">Admin</a></li>
+		</ul>
+	</nav>
+
+	<div id="login">
+		<a href="../auth.html">Login/Register</a>
+	</div>
+
+	</div>
+
+	<div id="content">
+		<div class="admin-grid">
+			<a class="admin-card" href="#kullanicilar">
+				<h3>Kullanıcılar</h3>
+				<p>Kullanıcıları görüntüle, ekle, düzenle.</p>
+			</a>
+			<a class="admin-card" href="#roller">
+				<h3>Roller</h3>
+				<p>Rolleri ve yetkileri yönet.</p>
+			</a>
+			<a class="admin-card" href="#raporlar">
+				<h3>Raporlar</h3>
+				<p>Basit istatistikler ve özetler.</p>
+			</a>
+			<a class="admin-card" href="#ayarlar">
+				<h3>Ayarlar</h3>
+				<p>Sistem ve görünüm ayarları.</p>
+			</a>
+		</div>
+
+		<div class="admin-sections">
+			<section id="kullanicilar" class="admin-section">
+				<h2>Kullanıcılar</h2>
+				<div class="table-wrap">
+					<table class="admin-table">
+						<tr class="thead"><td>ID</td><td>Ad-Soyad</td><td>E-posta</td><td>Roller</td><td>İşlemler</td></tr>
+						<tr><td>1</td><td>Örnek Kullanıcı</td><td>ornek@example.com</td><td>User</td><td><a href="#">Düzenle</a></td></tr>
+					</table>
+				</div>
+			</section>
+
+			<section id="roller" class="admin-section">
+				<h2>Roller</h2>
+				<ul class="tag-list">
+					<li>User</li>
+					<li>Admin</li>
+				</ul>
+			</section>
+
+			<section id="raporlar" class="admin-section">
+				<h2>Raporlar</h2>
+				<p>Toplam kullanıcı: 1 • Admin: 1 • Aktif roller: 2</p>
+			</section>
+
+			<section id="ayarlar" class="admin-section">
+				<h2>Ayarlar</h2>
+				<p>Bu alan ileride yapılandırmalar için kullanılacak.</p>
+			</section>
+		</div>
+	</div>
+
+	<div id="footer">
+	</div>
+
+	</div>
+	</center>
+
+	</body>
+
+</html>
+

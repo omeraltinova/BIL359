@@ -33,3 +33,5 @@
 /Users/omerfarukaltinova/Git_Projects/BIL359/Assignments/Week3/Week3.Web/obj/Debug/net9.0/compressed/83tacs4hcd-k8e5otegij.gz
 /Users/omerfarukaltinova/Git_Projects/BIL359/Assignments/Week3/Week3.Web/obj/Debug/net9.0/compressed/em8be2cumr-c8ji7f46v3.gz
 /Users/omerfarukaltinova/Git_Projects/BIL359/Assignments/Week3/Week3.Web/obj/Debug/net9.0/compressed/imc9o0b5rn-fh6vd4evo6.gz
+/Users/omerfarukaltinova/Git_Projects/BIL359/Assignments/Week3/Week3.Web/obj/Debug/net9.0/compressed/wsam5noyb6-l9pw1lfdxn.gz
+/Users/omerfarukaltinova/Git_Projects/BIL359/Assignments/Week3/Week3.Web/obj/Debug/net9.0/compressed/25w7lipwb1-14ygh8y9v2.gz
