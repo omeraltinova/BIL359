@@ -25,12 +25,12 @@
                 <ul class="menu">
                     <li><a href="index.aspx">Ana sayfa</a></li>
                     <li><a href="kitaplar.aspx">Kitaplar</a></li>
-                    <li><a href="uye.aspx">Üye Ol</a></li>
+                    <li><a href="about.aspx">Hakkında</a></li>
                 </ul>
             </nav>
 
             <div id="login">
-                <a href="giris.aspx">Giriş</a>
+                <a href="giris.aspx">Giriş</a> | <a href="giris.aspx?register=1">Kayıt Ol</a>
             </div>
         </div>
         

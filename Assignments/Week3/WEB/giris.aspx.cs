@@ -16,6 +16,7 @@ namespace WEB
             if (!IsPostBack)
             {
                 lblMesaj.Text = "";
+                lblKayitMesaj.Text = "";
             }
         }
 
@@ -67,6 +68,54 @@ namespace WEB
                 catch (Exception ex)
                 {
                     lblMesaj.Text = "Hata: " + ex.Message;
+                }
+            }
+        }
+
+        protected void btnKayit_Click(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+
+            using (MySqlConnection bag = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    bag.Open();
+
+                    // Kullanıcı var mı kontrol
+                    string kontrolSql = "SELECT COUNT(1) FROM kullanicilar WHERE kulad=@kulad";
+                    using (MySqlCommand kontrolCmd = new MySqlCommand(kontrolSql, bag))
+                    {
+                        kontrolCmd.Parameters.AddWithValue("@kulad", txtYeniKullaniciAdi.Text);
+                        int count = Convert.ToInt32(kontrolCmd.ExecuteScalar());
+                        if (count > 0)
+                        {
+                            lblKayitMesaj.Text = "Bu kullanıcı adı zaten alınmış.";
+                            return;
+                        }
+                    }
+
+                    // Ekleme
+                    string ekleSql = "INSERT INTO kullanicilar(kulad, sifre, yetki) VALUES(@kulad, @sifre, 'uye')";
+                    using (MySqlCommand ekleCmd = new MySqlCommand(ekleSql, bag))
+                    {
+                        ekleCmd.Parameters.AddWithValue("@kulad", txtYeniKullaniciAdi.Text);
+                        ekleCmd.Parameters.AddWithValue("@sifre", txtYeniSifre.Text);
+                        int res = ekleCmd.ExecuteNonQuery();
+                        if (res > 0)
+                        {
+                            lblKayitMesaj.ForeColor = System.Drawing.Color.Green;
+                            lblKayitMesaj.Text = "Kayıt başarıyla oluşturuldu. Giriş yapabilirsiniz.";
+                        }
+                        else
+                        {
+                            lblKayitMesaj.Text = "Kayıt oluşturulamadı.";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblKayitMesaj.Text = "Hata: " + ex.Message;
                 }
             }
         }
