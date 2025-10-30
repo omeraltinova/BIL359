@@ -1,14 +1,14 @@
 -- MySQL Kullanıcı ve Veritabanı Kurulumu
--- Mac için (root yerine webuser kullanıcısı)
 
 -- 1. Veritabanını oluştur
 CREATE DATABASE IF NOT EXISTS webkutup CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- 2. Yeni kullanıcı oluştur (root yerine)
-CREATE USER IF NOT EXISTS 'webuser'@'localhost' IDENTIFIED BY 'webpass123';
+DROP USER IF EXISTS 'webuser'@'localhost';
+CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'StrongPassword!123';
 
 -- 3. Kullanıcıya webkutup veritabanı için tüm yetkileri ver
-GRANT ALL PRIVILEGES ON webkutup.* TO 'webuser'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON webkutup.* TO 'webuser'@'localhost';
 
 -- 4. Yetkileri uygula
 FLUSH PRIVILEGES;
@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS kullanicilar (
     kulad VARCHAR(50) NOT NULL UNIQUE,
     sifre VARCHAR(50) NOT NULL,
     yetki VARCHAR(20) NOT NULL DEFAULT 'uye',
+    durum VARCHAR(20) NOT NULL DEFAULT 'aktif',
     kayit_tarihi TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

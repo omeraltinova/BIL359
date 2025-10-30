@@ -72,6 +72,11 @@
   <ItemGroup>
     <Content Include="admin\index_admin.aspx" />
     <Content Include="admin\kitaplar.aspx" />
+    <Content Include="admin\kitapdzn.aspx" />
+    <Content Include="admin\kitapsil.aspx" />
+    <Content Include="admin\uyeler.aspx" />
+    <Content Include="admin\uyedzn.aspx" />
+    <Content Include="admin\uyesil.aspx" />
     <Content Include="css\genel.css" />
     <Content Include="css\kitap.css" />
     <Content Include="giris.aspx" />
@@ -103,6 +108,41 @@
     </Compile>
     <Compile Include="admin\kitaplar.aspx.designer.cs">
       <DependentUpon>kitaplar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\kitapdzn.aspx.cs">
+      <DependentUpon>kitapdzn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\kitapdzn.aspx.designer.cs">
+      <DependentUpon>kitapdzn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\kitapsil.aspx.cs">
+      <DependentUpon>kitapsil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\kitapsil.aspx.designer.cs">
+      <DependentUpon>kitapsil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\uyeler.aspx.cs">
+      <DependentUpon>uyeler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\uyeler.aspx.designer.cs">
+      <DependentUpon>uyeler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\uyedzn.aspx.cs">
+      <DependentUpon>uyedzn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\uyedzn.aspx.designer.cs">
+      <DependentUpon>uyedzn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\uyesil.aspx.cs">
+      <DependentUpon>uyesil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\uyesil.aspx.designer.cs">
+      <DependentUpon>uyesil.aspx</DependentUpon>
     </Compile>
     <Compile Include="anasayfa.Master.cs">
       <DependentUpon>anasayfa.Master</DependentUpon>
