@@ -5,6 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="padding: 20px;">
         <h2 style="color: #615dee; font-size: 32px; margin-bottom: 20px;">Kitaplar Yönetimi</h2>
+        <div style="margin-bottom: 12px;">
+            <a href="kitapdzn.aspx">+ Yeni Kitap Ekle</a>
+        </div>
         
         <table class="book-table">
             <tr class="baslik">
