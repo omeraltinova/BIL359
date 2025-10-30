@@ -7,11 +7,6 @@ using System.Web.SessionState;
 
 namespace WEB
 {
-    public class Global : System.Web.HttpApplication
-    {
-        protected void Application_Start(object sender, EventArgs e)
-        {
-        }
-    }
+    public class Global : System.Web.HttpApplication { }
 }
 

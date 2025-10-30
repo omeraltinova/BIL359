@@ -4,6 +4,7 @@
 
 <html>
 <head runat="server">
+    <meta charset="utf-8" />
     <title>İMÜ Kütüphanesi - Yönetici Paneli</title>
     <link rel="shortcut icon" type="image/png" href="../images/logo.png">
     <link rel="stylesheet" href="../css/genel.css">

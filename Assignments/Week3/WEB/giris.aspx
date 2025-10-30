@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <meta charset="utf-8" />
     <title>Giriş - İMÜ Kütüphanesi</title>
     <link rel="shortcut icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="css/genel.css">
