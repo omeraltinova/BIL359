@@ -1,0 +1,51 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="WEB.admin.admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>İMÜ Kütüphanesi - Yönetici Paneli</title>
+    <link rel="shortcut icon" type="image/png" href="../images/logo.png">
+    <link rel="stylesheet" href="../css/genel.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="body">
+    <center>
+    <div id="container">
+        <div id="header">
+            <div id="logo">
+                <a target="_blank" href="https://www.medeniyet.edu.tr">   
+                    <img style="margin-top:15px" src="../images/logo.png" alt="imü logo">
+                </a>
+            </div>
+
+            <nav aria-label="Ana menü">
+                <ul class="menu">
+                    <li><a href="index_admin.aspx">Admin Ana Sayfa</a></li>
+                    <li><a href="kitaplar.aspx">Kitaplar Yönetimi</a></li>
+                    <li><a href="uyeler.aspx">Üyeler</a></li>
+                    <li><a href="../index.aspx">Çıkış</a></li>
+                </ul>
+            </nav>
+
+            <div id="login">
+                <span style="color: white; font-weight: bold;">Yönetici Paneli</span>
+            </div>
+        </div>
+        
+        <form id="form1" runat="server">
+            <div id="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+        
+        <div id="footer">
+        </div>
+    </div>
+    </center>
+</body>
+</html>
+
