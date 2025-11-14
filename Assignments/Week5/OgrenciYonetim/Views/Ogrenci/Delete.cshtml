@@ -1,0 +1,60 @@
+@model OgrenciYonetim.Models.Ogrenci
+
+@{
+    ViewBag.Title = "Öğrenci Sil";
+}
+
+<div class="page-header">
+    <h2>🗑 Öğrenci Sil</h2>
+</div>
+
+<div class="delete-container">
+    <div class="alert alert-warning">
+        ⚠ <strong>Uyarı:</strong> Bu işlem geri alınamaz!
+    </div>
+
+    <div class="detail-card">
+        <h3>Aşağıdaki öğrenciyi silmek istediğinizden emin misiniz?</h3>
+        
+        <div class="detail-grid">
+            <div class="detail-item">
+                <span class="detail-label">ID:</span>
+                <span class="detail-value">@Model.ID</span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Öğrenci No:</span>
+                <span class="detail-value"><strong>@Model.Numara</strong></span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Ad Soyad:</span>
+                <span class="detail-value">@Model.TamAd</span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Bölüm:</span>
+                <span class="detail-value">@Model.Bolum</span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Kayıt Tarihi:</span>
+                <span class="detail-value">@Model.Kayit_Tarihi.ToString("dd.MM.yyyy HH:mm")</span>
+            </div>
+        </div>
+    </div>
+
+    @using (Html.BeginForm("Delete", "Ogrenci", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.ID)
+        
+        <div class="form-actions delete-actions">
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Öğrenciyi silmek istediğinizden emin misiniz?');">
+                🗑 Evet, Sil
+            </button>
+            @Html.ActionLink("❌ Hayır, İptal Et", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
+</div>
+

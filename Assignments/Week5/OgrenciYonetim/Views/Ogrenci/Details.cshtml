@@ -1,0 +1,74 @@
+@model OgrenciYonetim.Models.Ogrenci
+
+@{
+    ViewBag.Title = "Öğrenci Detayları";
+}
+
+<div class="page-header">
+    <h2>👁 Öğrenci Detayları</h2>
+</div>
+
+@if (ViewBag.Hata != null)
+{
+    <div class="alert alert-error">
+        ✗ @ViewBag.Hata
+    </div>
+}
+
+@if (Model != null)
+{
+    <div class="detail-card">
+        <div class="detail-header">
+            <h3>@Model.TamAd</h3>
+            <span class="badge">@Model.Numara</span>
+        </div>
+        
+        <div class="detail-grid">
+            <div class="detail-item">
+                <span class="detail-label">🆔 ID:</span>
+                <span class="detail-value">@Model.ID</span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">🎫 Öğrenci Numarası:</span>
+                <span class="detail-value"><strong>@Model.Numara</strong></span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">👤 Ad:</span>
+                <span class="detail-value">@Model.Ad</span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">👤 Soyad:</span>
+                <span class="detail-value">@Model.Soyad</span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">🎓 Bölüm:</span>
+                <span class="detail-value">@Model.Bolum</span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">📅 Kayıt Tarihi:</span>
+                <span class="detail-value">@Model.Kayit_Tarihi.ToString("dd.MM.yyyy HH:mm:ss")</span>
+            </div>
+        </div>
+
+        <div class="detail-actions">
+            @Html.ActionLink("✏ Düzenle", "Edit", new { id = Model.ID }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("🗑 Sil", "Delete", new { id = Model.ID }, new { @class = "btn btn-danger" })
+            @Html.ActionLink("⬅ Listeye Dön", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-error">
+        ✗ Öğrenci bulunamadı.
+    </div>
+    <div>
+        @Html.ActionLink("⬅ Listeye Dön", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+}
+

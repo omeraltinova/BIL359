@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Öğrenci Yönetim Sistemi</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>🎓 Öğrenci Yönetim Sistemi</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li>@Html.ActionLink("Ana Sayfa", "Index", "Ogrenci")</li>
+                    <li>@Html.ActionLink("Yeni Öğrenci", "Create", "Ogrenci")</li>
+                    <li>@Html.ActionLink("İstatistikler", "Stats", "Ogrenci")</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        @if (TempData["Basari"] != null)
+        {
+            <div class="alert alert-success">
+                ✓ @TempData["Basari"]
+            </div>
+        }
+
+        @if (TempData["Hata"] != null)
+        {
+            <div class="alert alert-error">
+                ✗ @TempData["Hata"]
+            </div>
+        }
+
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year - Öğrenci Yönetim Sistemi | İstanbul Medeniyet Üniversitesi</p>
+            <p>ASP.NET MVC - Week 5 Assignment</p>
+        </div>
+    </footer>
+</body>
+</html>
+

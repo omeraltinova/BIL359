@@ -1,0 +1,69 @@
+@model OgrenciYonetim.Models.Ogrenci
+
+@{
+    ViewBag.Title = "Yeni Öğrenci Ekle";
+}
+
+<div class="page-header">
+    <h2>➕ Yeni Öğrenci Ekle</h2>
+</div>
+
+<div class="form-container">
+    @using (Html.BeginForm("Create", "Ogrenci", FormMethod.Post, new { @class = "student-form" }))
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-section">
+            <h3>Öğrenci Bilgileri</h3>
+            
+            @Html.ValidationSummary(true, "", new { @class = "alert alert-error" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Numara, new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.Numara, new { @class = "form-control", placeholder = "Örn: 20210001", maxlength = "20", required = "required" })
+                @Html.ValidationMessageFor(model => model.Numara, "", new { @class = "field-validation-error" })
+                <small class="form-hint">Öğrenci numarası benzersiz olmalıdır</small>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ad, new { @class = "form-label" })
+                    @Html.TextBoxFor(model => model.Ad, new { @class = "form-control", placeholder = "Ad", maxlength = "50", required = "required" })
+                    @Html.ValidationMessageFor(model => model.Ad, "", new { @class = "field-validation-error" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Soyad, new { @class = "form-label" })
+                    @Html.TextBoxFor(model => model.Soyad, new { @class = "form-control", placeholder = "Soyad", maxlength = "50", required = "required" })
+                    @Html.ValidationMessageFor(model => model.Soyad, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Bolum, new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.Bolum, new { @class = "form-control", placeholder = "Örn: Bilgisayar Mühendisliği", maxlength = "100", required = "required" })
+                @Html.ValidationMessageFor(model => model.Bolum, "", new { @class = "field-validation-error" })
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">💾 Kaydet</button>
+            @Html.ActionLink("❌ İptal", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        // Form validation için basit JavaScript
+        document.querySelector('.student-form').addEventListener('submit', function(e) {
+            var numara = document.querySelector('input[name="Numara"]').value;
+            if (numara.trim().length === 0) {
+                alert('Öğrenci numarası zorunludur!');
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+}
+
