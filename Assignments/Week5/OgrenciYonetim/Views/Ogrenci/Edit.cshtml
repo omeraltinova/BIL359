@@ -4,64 +4,71 @@
     ViewBag.Title = "Öğrenci Düzenle";
 }
 
-<div class="page-header">
-    <h2>✏ Öğrenci Düzenle</h2>
-</div>
+<div style="padding: 20px;">
+    <h2 style="color: #615dee; font-size: 32px; margin-bottom: 20px;">Öğrenci Düzenle</h2>
 
-<div class="form-container">
-    @using (Html.BeginForm("Edit", "Ogrenci", FormMethod.Post, new { @class = "student-form" }))
+    @using (Html.BeginForm("Edit", "Ogrenci", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(model => model.ID)
         
-        <div class="form-section">
-            <h3>Öğrenci Bilgileri</h3>
-            
-            @Html.ValidationSummary(true, "", new { @class = "alert alert-error" })
+        @Html.ValidationSummary(true, "", new { style = "color: red; font-weight: 700;" })
 
-            <div class="form-group">
-                <label class="form-label">ID</label>
-                <input type="text" class="form-control" value="@Model.ID" disabled />
-                <small class="form-hint">Öğrenci ID değiştirilemez</small>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Numara, new { @class = "form-label" })
-                @Html.TextBoxFor(model => model.Numara, new { @class = "form-control", placeholder = "Örn: 20210001", maxlength = "20", required = "required" })
-                @Html.ValidationMessageFor(model => model.Numara, "", new { @class = "field-validation-error" })
-                <small class="form-hint">Öğrenci numarası benzersiz olmalıdır</small>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Ad, new { @class = "form-label" })
-                    @Html.TextBoxFor(model => model.Ad, new { @class = "form-control", placeholder = "Ad", maxlength = "50", required = "required" })
-                    @Html.ValidationMessageFor(model => model.Ad, "", new { @class = "field-validation-error" })
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Soyad, new { @class = "form-label" })
-                    @Html.TextBoxFor(model => model.Soyad, new { @class = "form-control", placeholder = "Soyad", maxlength = "50", required = "required" })
-                    @Html.ValidationMessageFor(model => model.Soyad, "", new { @class = "field-validation-error" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Bolum, new { @class = "form-label" })
-                @Html.TextBoxFor(model => model.Bolum, new { @class = "form-control", placeholder = "Örn: Bilgisayar Mühendisliği", maxlength = "100", required = "required" })
-                @Html.ValidationMessageFor(model => model.Bolum, "", new { @class = "field-validation-error" })
-            </div>
-
-            <div class="info-box">
-                <strong>Kayıt Tarihi:</strong> @Model.Kayit_Tarihi.ToString("dd.MM.yyyy HH:mm")
-            </div>
-        </div>
-
-        <div class="form-actions">
-            <button type="submit" class="btn btn-success">💾 Güncelle</button>
-            @Html.ActionLink("👁 Detay", "Details", new { id = Model.ID }, new { @class = "btn btn-info" })
-            @Html.ActionLink("❌ İptal", "Index", null, new { @class = "btn btn-secondary" })
-        </div>
+        <table style="border-collapse: collapse;">
+            <tr>
+                <td style="padding: 10px; font-weight: 700; font-size: 18px;">ID:</td>
+                <td style="padding: 10px;">
+                    <input type="text" value="@Model.ID" disabled style="width: 300px; padding: 8px; font-size: 16px; background-color: #f0f0f0;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: 700; font-size: 18px;">
+                    @Html.LabelFor(model => model.Numara)
+                </td>
+                <td style="padding: 10px;">
+                    @Html.TextBoxFor(model => model.Numara, new { style = "width: 300px; padding: 8px; font-size: 16px;" })
+                    @Html.ValidationMessageFor(model => model.Numara, "", new { style = "color: red;" })
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: 700; font-size: 18px;">
+                    @Html.LabelFor(model => model.Ad)
+                </td>
+                <td style="padding: 10px;">
+                    @Html.TextBoxFor(model => model.Ad, new { style = "width: 300px; padding: 8px; font-size: 16px;" })
+                    @Html.ValidationMessageFor(model => model.Ad, "", new { style = "color: red;" })
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: 700; font-size: 18px;">
+                    @Html.LabelFor(model => model.Soyad)
+                </td>
+                <td style="padding: 10px;">
+                    @Html.TextBoxFor(model => model.Soyad, new { style = "width: 300px; padding: 8px; font-size: 16px;" })
+                    @Html.ValidationMessageFor(model => model.Soyad, "", new { style = "color: red;" })
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: 700; font-size: 18px;">
+                    @Html.LabelFor(model => model.Bolum)
+                </td>
+                <td style="padding: 10px;">
+                    @Html.TextBoxFor(model => model.Bolum, new { style = "width: 300px; padding: 8px; font-size: 16px;" })
+                    @Html.ValidationMessageFor(model => model.Bolum, "", new { style = "color: red;" })
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: 700; font-size: 18px;">Kayıt Tarihi:</td>
+                <td style="padding: 10px; color: cadetblue; font-size: 16px;">
+                    @Model.Kayit_Tarihi.ToString("dd.MM.yyyy HH:mm")
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding: 10px;">
+                    <button type="submit" class="btn" style="padding: 10px 20px; background-color: green; color: white; cursor: pointer;">Güncelle</button>
+                    @Html.ActionLink("İptal", "Index", null, new { @class = "btn", style = "padding: 10px 20px; background-color: red; color: white; text-decoration: none; display: inline-block; margin-left: 10px;" })
+                </td>
+            </tr>
+        </table>
     }
 </div>
-

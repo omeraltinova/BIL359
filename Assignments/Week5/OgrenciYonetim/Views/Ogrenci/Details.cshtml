@@ -4,71 +4,54 @@
     ViewBag.Title = "Öğrenci Detayları";
 }
 
-<div class="page-header">
-    <h2>👁 Öğrenci Detayları</h2>
+<div style="padding: 20px;">
+    <h2 style="color: #615dee; font-size: 32px; margin-bottom: 20px;">Öğrenci Detayları</h2>
+
+    @if (ViewBag.Hata != null)
+    {
+        <p style="color: red; font-weight: 700;">@ViewBag.Hata</p>
+    }
+
+    @if (Model != null)
+    {
+        <table style="border: 1px solid black; border-collapse: collapse; min-width: 60%;">
+            <tr>
+                <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd; background-color: #f0f0f0;">ID:</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">@Model.ID</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd; background-color: #f0f0f0;">Öğrenci Numarası:</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">@Model.Numara</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd; background-color: #f0f0f0;">Ad:</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">@Model.Ad</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd; background-color: #f0f0f0;">Soyad:</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">@Model.Soyad</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd; background-color: #f0f0f0;">Bölüm:</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">@Model.Bolum</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd; background-color: #f0f0f0;">Kayıt Tarihi:</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">@Model.Kayit_Tarihi.ToString("dd.MM.yyyy HH:mm:ss")</td>
+            </tr>
+        </table>
+
+        <div style="margin-top: 20px;">
+            @Html.ActionLink("Düzenle", "Edit", new { id = Model.ID }, new { style = "padding: 10px 20px; background-color: orange; color: white; text-decoration: none; display: inline-block; border-radius: 5px; font-weight: 700;" })
+            @Html.ActionLink("Sil", "Delete", new { id = Model.ID }, new { style = "padding: 10px 20px; background-color: red; color: white; text-decoration: none; display: inline-block; border-radius: 5px; font-weight: 700; margin-left: 10px;" })
+            @Html.ActionLink("Listeye Dön", "Index", null, new { style = "padding: 10px 20px; background-color: #615dee; color: white; text-decoration: none; display: inline-block; border-radius: 5px; font-weight: 700; margin-left: 10px;" })
+        </div>
+    }
+    else
+    {
+        <p style="color: red; font-weight: 700;">Öğrenci bulunamadı.</p>
+        <div style="margin-top: 20px;">
+            @Html.ActionLink("Listeye Dön", "Index", null, new { style = "padding: 10px 20px; background-color: #615dee; color: white; text-decoration: none; display: inline-block; border-radius: 5px; font-weight: 700;" })
+        </div>
+    }
 </div>
-
-@if (ViewBag.Hata != null)
-{
-    <div class="alert alert-error">
-        ✗ @ViewBag.Hata
-    </div>
-}
-
-@if (Model != null)
-{
-    <div class="detail-card">
-        <div class="detail-header">
-            <h3>@Model.TamAd</h3>
-            <span class="badge">@Model.Numara</span>
-        </div>
-        
-        <div class="detail-grid">
-            <div class="detail-item">
-                <span class="detail-label">🆔 ID:</span>
-                <span class="detail-value">@Model.ID</span>
-            </div>
-            
-            <div class="detail-item">
-                <span class="detail-label">🎫 Öğrenci Numarası:</span>
-                <span class="detail-value"><strong>@Model.Numara</strong></span>
-            </div>
-            
-            <div class="detail-item">
-                <span class="detail-label">👤 Ad:</span>
-                <span class="detail-value">@Model.Ad</span>
-            </div>
-            
-            <div class="detail-item">
-                <span class="detail-label">👤 Soyad:</span>
-                <span class="detail-value">@Model.Soyad</span>
-            </div>
-            
-            <div class="detail-item">
-                <span class="detail-label">🎓 Bölüm:</span>
-                <span class="detail-value">@Model.Bolum</span>
-            </div>
-            
-            <div class="detail-item">
-                <span class="detail-label">📅 Kayıt Tarihi:</span>
-                <span class="detail-value">@Model.Kayit_Tarihi.ToString("dd.MM.yyyy HH:mm:ss")</span>
-            </div>
-        </div>
-
-        <div class="detail-actions">
-            @Html.ActionLink("✏ Düzenle", "Edit", new { id = Model.ID }, new { @class = "btn btn-warning" })
-            @Html.ActionLink("🗑 Sil", "Delete", new { id = Model.ID }, new { @class = "btn btn-danger" })
-            @Html.ActionLink("⬅ Listeye Dön", "Index", null, new { @class = "btn btn-secondary" })
-        </div>
-    </div>
-}
-else
-{
-    <div class="alert alert-error">
-        ✗ Öğrenci bulunamadı.
-    </div>
-    <div>
-        @Html.ActionLink("⬅ Listeye Dön", "Index", null, new { @class = "btn btn-secondary" })
-    </div>
-}
-

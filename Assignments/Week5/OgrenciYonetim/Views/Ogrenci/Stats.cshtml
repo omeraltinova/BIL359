@@ -4,83 +4,55 @@
     ViewBag.Title = "İstatistikler";
 }
 
-<div class="page-header">
-    <h2>📊 Bölüm İstatistikleri</h2>
-</div>
+<div style="padding: 20px;">
+    <h2 style="color: #615dee; font-size: 32px; margin-bottom: 20px;">Bölüm İstatistikleri</h2>
 
-@if (ViewBag.Hata != null)
-{
-    <div class="alert alert-error">
-        ✗ @ViewBag.Hata
-    </div>
-}
+    @if (ViewBag.Hata != null)
+    {
+        <p style="color: red; font-weight: 700;">@ViewBag.Hata</p>
+    }
 
-@if (Model != null && Model.Count > 0)
-{
-    int toplamOgrenci = Model.Values.Sum();
-    
-    <div class="stats-summary">
-        <div class="stat-card">
-            <div class="stat-number">@toplamOgrenci</div>
-            <div class="stat-label">Toplam Öğrenci</div>
-        </div>
+    @if (Model != null && Model.Count > 0)
+    {
+        int toplamOgrenci = Model.Values.Sum();
         
-        <div class="stat-card">
-            <div class="stat-number">@Model.Count</div>
-            <div class="stat-label">Farklı Bölüm</div>
-        </div>
-        
-        <div class="stat-card">
-            <div class="stat-number">@(toplamOgrenci / Model.Count)</div>
-            <div class="stat-label">Ortalama Öğrenci/Bölüm</div>
-        </div>
-    </div>
+        <p style="color: cadetblue; font-size: 20px; font-weight: 700;">
+            Toplam @toplamOgrenci öğrenci, @Model.Count farklı bölümde kayıtlı.
+        </p>
 
-    <div class="table-container">
-        <h3>Bölümlere Göre Dağılım</h3>
-        <table class="data-table">
-            <thead>
+        <table class="book-table">
+            <tr class="baslik">
+                <td>Sıra</td>
+                <td>Bölüm</td>
+                <td>Öğrenci Sayısı</td>
+                <td>Yüzde</td>
+            </tr>
+
+            @{ int sira = 1; }
+            @foreach (var item in Model)
+            {
+                double yuzde = (double)item.Value / toplamOgrenci * 100;
                 <tr>
-                    <th>Sıra</th>
-                    <th>Bölüm</th>
-                    <th>Öğrenci Sayısı</th>
-                    <th>Yüzde</th>
-                    <th>Grafik</th>
+                    <td>@sira</td>
+                    <td>@item.Key</td>
+                    <td>@item.Value</td>
+                    <td>%@yuzde.ToString("F1")</td>
                 </tr>
-            </thead>
-            <tbody>
-                @{ int sira = 1; }
-                @foreach (var item in Model)
-                {
-                    double yuzde = (double)item.Value / toplamOgrenci * 100;
-                    <tr>
-                        <td>@sira</td>
-                        <td><strong>@item.Key</strong></td>
-                        <td>@item.Value</td>
-                        <td>%@yuzde.ToString("F1")</td>
-                        <td>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: @yuzde%"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    sira++;
-                }
-            </tbody>
+                sira++;
+            }
         </table>
-    </div>
 
-    <div class="form-actions">
-        @Html.ActionLink("⬅ Listeye Dön", "Index", null, new { @class = "btn btn-secondary" })
-    </div>
-}
-else
-{
-    <div class="alert alert-info">
-        ℹ Henüz istatistik verisi bulunmamaktadır.
-    </div>
-    <div>
-        @Html.ActionLink("⬅ Listeye Dön", "Index", null, new { @class = "btn btn-secondary" })
-    </div>
-}
-
+        <div style="margin-top: 20px;">
+            @Html.ActionLink("Listeye Dön", "Index", null, new { style = "padding: 10px 20px; background-color: #615dee; color: white; text-decoration: none; display: inline-block; border-radius: 5px; font-weight: 700;" })
+        </div>
+    }
+    else
+    {
+        <p style="color: cadetblue; font-size: 20px; font-weight: 700;">
+            Henüz istatistik verisi bulunmamaktadır.
+        </p>
+        <div style="margin-top: 20px;">
+            @Html.ActionLink("Listeye Dön", "Index", null, new { style = "padding: 10px 20px; background-color: #615dee; color: white; text-decoration: none; display: inline-block; border-radius: 5px; font-weight: 700;" })
+        </div>
+    }
+</div>

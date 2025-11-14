@@ -1,51 +1,58 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Öğrenci Yönetim Sistemi</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")">
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>🎓 Öğrenci Yönetim Sistemi</h1>
+<body class="body">
+    <center>
+    <div id="container">
+        <div id="header">
+            <div id="logo">
+                <div style="padding-top: 50px; font-size: 24px; font-weight: 700; color: #615dee;">
+                    İMÜ
+                </div>
             </div>
-            <nav>
-                <ul>
+
+            <nav aria-label="Ana menü">
+                <ul class="menu">
                     <li>@Html.ActionLink("Ana Sayfa", "Index", "Ogrenci")</li>
                     <li>@Html.ActionLink("Yeni Öğrenci", "Create", "Ogrenci")</li>
                     <li>@Html.ActionLink("İstatistikler", "Stats", "Ogrenci")</li>
                 </ul>
             </nav>
-        </div>
-    </header>
 
-    <main class="container">
-        @if (TempData["Basari"] != null)
-        {
-            <div class="alert alert-success">
-                ✓ @TempData["Basari"]
+            <div id="login">
+                <a href="#">Admin</a>
             </div>
-        }
-
-        @if (TempData["Hata"] != null)
-        {
-            <div class="alert alert-error">
-                ✗ @TempData["Hata"]
-            </div>
-        }
-
-        @RenderBody()
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; @DateTime.Now.Year - Öğrenci Yönetim Sistemi | İstanbul Medeniyet Üniversitesi</p>
-            <p>ASP.NET MVC - Week 5 Assignment</p>
         </div>
-    </footer>
+
+        <div id="content">
+            @if (TempData["Basari"] != null)
+            {
+                <div class="alert alert-success">
+                    ✓ @TempData["Basari"]
+                </div>
+            }
+
+            @if (TempData["Hata"] != null)
+            {
+                <div class="alert alert-error">
+                    ✗ @TempData["Hata"]
+                </div>
+            }
+
+            @RenderBody()
+        </div>
+
+        <div id="footer">
+            <p style="padding: 20px; text-align: center; color: white; font-size: 18px;">
+                &copy; @DateTime.Now.Year - İstanbul Medeniyet Üniversitesi
+            </p>
+        </div>
+    </div>
+    </center>
 </body>
 </html>
 

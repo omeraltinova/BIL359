@@ -4,57 +4,46 @@
     ViewBag.Title = "Öğrenci Sil";
 }
 
-<div class="page-header">
-    <h2>🗑 Öğrenci Sil</h2>
-</div>
+<div style="padding: 20px;">
+    <h2 style="color: #615dee; font-size: 32px; margin-bottom: 20px;">Öğrenci Sil</h2>
 
-<div class="delete-container">
-    <div class="alert alert-warning">
-        ⚠ <strong>Uyarı:</strong> Bu işlem geri alınamaz!
-    </div>
+    <p style="color: red; font-weight: 700; font-size: 20px;">⚠ Uyarı: Bu işlem geri alınamaz!</p>
 
-    <div class="detail-card">
-        <h3>Aşağıdaki öğrenciyi silmek istediğinizden emin misiniz?</h3>
-        
-        <div class="detail-grid">
-            <div class="detail-item">
-                <span class="detail-label">ID:</span>
-                <span class="detail-value">@Model.ID</span>
-            </div>
-            
-            <div class="detail-item">
-                <span class="detail-label">Öğrenci No:</span>
-                <span class="detail-value"><strong>@Model.Numara</strong></span>
-            </div>
-            
-            <div class="detail-item">
-                <span class="detail-label">Ad Soyad:</span>
-                <span class="detail-value">@Model.TamAd</span>
-            </div>
-            
-            <div class="detail-item">
-                <span class="detail-label">Bölüm:</span>
-                <span class="detail-value">@Model.Bolum</span>
-            </div>
-            
-            <div class="detail-item">
-                <span class="detail-label">Kayıt Tarihi:</span>
-                <span class="detail-value">@Model.Kayit_Tarihi.ToString("dd.MM.yyyy HH:mm")</span>
-            </div>
-        </div>
-    </div>
+    <p style="font-size: 20px; margin: 20px 0;">Aşağıdaki öğrenciyi silmek istediğinizden emin misiniz?</p>
+    
+    <table style="border: 1px solid black; border-collapse: collapse; min-width: 60%;">
+        <tr>
+            <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd;">ID:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">@Model.ID</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd;">Öğrenci No:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">@Model.Numara</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd;">Ad Soyad:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">@Model.TamAd</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd;">Bölüm:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">@Model.Bolum</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd;">Kayıt Tarihi:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">@Model.Kayit_Tarihi.ToString("dd.MM.yyyy HH:mm")</td>
+        </tr>
+    </table>
 
     @using (Html.BeginForm("Delete", "Ogrenci", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(model => model.ID)
         
-        <div class="form-actions delete-actions">
-            <button type="submit" class="btn btn-danger" onclick="return confirm('Öğrenciyi silmek istediğinizden emin misiniz?');">
-                🗑 Evet, Sil
+        <div style="margin-top: 20px;">
+            <button type="submit" class="btn" style="padding: 10px 20px; background-color: red; color: white; cursor: pointer; font-weight: 700;" onclick="return confirm('Öğrenciyi silmek istediğinizden emin misiniz?');">
+                Evet, Sil
             </button>
-            @Html.ActionLink("❌ Hayır, İptal Et", "Index", null, new { @class = "btn btn-secondary" })
+            @Html.ActionLink("Hayır, İptal Et", "Index", null, new { @class = "btn", style = "padding: 10px 20px; background-color: green; color: white; text-decoration: none; display: inline-block; margin-left: 10px; font-weight: 700;" })
         </div>
     }
 </div>
-

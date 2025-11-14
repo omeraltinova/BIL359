@@ -4,67 +4,47 @@
     ViewBag.Title = "Öğrenci Listesi";
 }
 
-<div class="page-header">
-    <h2>📋 Öğrenci Listesi</h2>
-    <div class="actions">
-        @Html.ActionLink("➕ Yeni Öğrenci Ekle", "Create", null, new { @class = "btn btn-primary" })
+<div style="padding: 20px;">
+    <h2 style="color: #615dee; font-size: 32px; margin-bottom: 20px;">Öğrenci Yönetimi</h2>
+    <div style="margin-bottom: 12px;">
+        @Html.ActionLink("+ Yeni Öğrenci Ekle", "Create")
     </div>
-</div>
+    
+    @if (ViewBag.Hata != null)
+    {
+        <p style="color: red; font-weight: 700;">@ViewBag.Hata</p>
+    }
 
-@if (ViewBag.Hata != null)
-{
-    <div class="alert alert-error">
-        ✗ @ViewBag.Hata
-    </div>
-}
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="book-table">
+            <tr class="baslik">
+                <td>ID</td>
+                <td>Öğrenci No</td>
+                <td>Ad</td>
+                <td>Soyad</td>
+                <td>Bölüm</td>
+                <td>İşlemler</td>
+            </tr>
 
-@if (Model != null && Model.Count > 0)
-{
-    <div class="stats-bar">
-        <span class="stat-item">
-            <strong>Toplam Öğrenci:</strong> @ViewBag.ToplamOgrenci
-        </span>
-    </div>
-
-    <div class="table-container">
-        <table class="data-table">
-            <thead>
+            @foreach (var ogrenci in Model)
+            {
                 <tr>
-                    <th>ID</th>
-                    <th>Öğrenci No</th>
-                    <th>Ad</th>
-                    <th>Soyad</th>
-                    <th>Bölüm</th>
-                    <th>Kayıt Tarihi</th>
-                    <th>İşlemler</th>
+                    <td>@ogrenci.ID</td>
+                    <td>@ogrenci.Numara</td>
+                    <td>@ogrenci.Ad</td>
+                    <td>@ogrenci.Soyad</td>
+                    <td>@ogrenci.Bolum</td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = ogrenci.ID }) |
+                        @Html.ActionLink("Sil", "Delete", new { id = ogrenci.ID })
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var ogrenci in Model)
-                {
-                    <tr>
-                        <td>@ogrenci.ID</td>
-                        <td><strong>@ogrenci.Numara</strong></td>
-                        <td>@ogrenci.Ad</td>
-                        <td>@ogrenci.Soyad</td>
-                        <td>@ogrenci.Bolum</td>
-                        <td>@ogrenci.Kayit_Tarihi.ToString("dd.MM.yyyy HH:mm")</td>
-                        <td class="action-buttons">
-                            @Html.ActionLink("👁", "Details", new { id = ogrenci.ID }, new { @class = "btn btn-info", title = "Detay" })
-                            @Html.ActionLink("✏", "Edit", new { id = ogrenci.ID }, new { @class = "btn btn-warning", title = "Düzenle" })
-                            @Html.ActionLink("🗑", "Delete", new { id = ogrenci.ID }, new { @class = "btn btn-danger", title = "Sil" })
-                        </td>
-                    </tr>
-                }
-            </tbody>
+            }
         </table>
-    </div>
-}
-else
-{
-    <div class="alert alert-info">
-        ℹ Henüz kayıtlı öğrenci bulunmamaktadır.
-        @Html.ActionLink("Yeni öğrenci eklemek için tıklayın", "Create")
-    </div>
-}
-
+    }
+    else
+    {
+        <p>Henüz kayıtlı öğrenci bulunmamaktadır.</p>
+    }
+</div>
