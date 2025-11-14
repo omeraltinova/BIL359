@@ -1,0 +1,50 @@
+@model OgrenciYonetim.Models.Kitap
+
+@{
+    ViewBag.Title = "Kitap Sil";
+}
+
+<div style="padding: 20px;">
+    <h2 style="color: #615dee; font-size: 32px; margin-bottom: 20px;">Kitap Sil</h2>
+
+    <p style="color: red; font-weight: 700; font-size: 20px;">⚠ Uyarı: Bu işlem geri alınamaz!</p>
+
+    <p style="font-size: 20px; margin: 20px 0;">Aşağıdaki kitabı silmek istediğinizden emin misiniz?</p>
+    
+    <table style="border: 1px solid black; border-collapse: collapse; min-width: 60%;">
+        <tr>
+            <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd;">ID:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">@Model.ID</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd;">Kitap Adı:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">@Model.kitap_adi</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd;">Yazar:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">@Model.yazar</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd;">ISBN:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">@Model.isbn</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; font-weight: 700; border: 1px solid #ddd;">Yayın Yılı:</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">@Model.yil</td>
+        </tr>
+    </table>
+
+    @using (Html.BeginForm("Delete", "Kitap", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.ID)
+        
+        <div style="margin-top: 20px;">
+            <button type="submit" class="btn" style="padding: 10px 20px; background-color: red; color: white; cursor: pointer; font-weight: 700;" onclick="return confirm('Kitabı silmek istediğinizden emin misiniz?');">
+                Evet, Sil
+            </button>
+            @Html.ActionLink("Hayır, İptal Et", "Index", null, new { @class = "btn", style = "padding: 10px 20px; background-color: green; color: white; text-decoration: none; display: inline-block; margin-left: 10px; font-weight: 700;" })
+        </div>
+    }
+</div>
+

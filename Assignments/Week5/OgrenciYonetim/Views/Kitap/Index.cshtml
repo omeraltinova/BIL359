@@ -1,0 +1,47 @@
+@model List<OgrenciYonetim.Models.Kitap>
+
+@{
+    ViewBag.Title = "Kitaplar Yönetimi";
+}
+
+<div style="padding: 20px;">
+    <h2 style="color: #615dee; font-size: 32px; margin-bottom: 20px;">Kitaplar Yönetimi</h2>
+    <div style="margin-bottom: 12px;">
+        @Html.ActionLink("+ Yeni Kitap Ekle", "Create")
+    </div>
+    
+    @if (ViewBag.Hata != null)
+    {
+        <p style="color: red; font-weight: 700;">@ViewBag.Hata</p>
+    }
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="book-table">
+            <tr class="baslik">
+                <td>ID</td>
+                <td>Kitap Adı</td>
+                <td>Yazar</td>
+                <td>İşlemler</td>
+            </tr>
+
+            @foreach (var kitap in Model)
+            {
+                <tr>
+                    <td>@kitap.ID</td>
+                    <td>@kitap.kitap_adi</td>
+                    <td>@kitap.yazar</td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = kitap.ID }) |
+                        @Html.ActionLink("Sil", "Delete", new { id = kitap.ID })
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>Henüz kayıtlı kitap bulunmamaktadır.</p>
+    }
+</div>
+

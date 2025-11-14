@@ -1,0 +1,62 @@
+@model List<OgrenciYonetim.Models.Kullanici>
+
+@{
+    ViewBag.Title = "Kullanıcı Yönetimi";
+}
+
+<div style="padding: 20px;">
+    <h2 style="color: #615dee; font-size: 32px; margin-bottom: 20px;">Kullanıcı Yönetimi</h2>
+    <div style="margin-bottom: 12px;">
+        @Html.ActionLink("← Admin Paneline Dön", "Index", "Admin")
+    </div>
+    
+    @if (ViewBag.Hata != null)
+    {
+        <p style="color: red; font-weight: 700;">@ViewBag.Hata</p>
+    }
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="book-table">
+            <tr class="baslik">
+                <td>ID</td>
+                <td>Kullanıcı Adı</td>
+                <td>Yetki</td>
+                <td>Durum</td>
+                <td>Kayıt Tarihi</td>
+                <td>İşlemler</td>
+            </tr>
+
+            @foreach (var kullanici in Model)
+            {
+                <tr>
+                    <td>@kullanici.ID</td>
+                    <td>@kullanici.kulad</td>
+                    <td>@kullanici.yetki</td>
+                    <td>@kullanici.durum</td>
+                    <td>@kullanici.kayit_tarihi.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>
+                        @if (kullanici.yetki != "admin")
+                        {
+                            using (Html.BeginForm("KullaniciSil", "Admin", FormMethod.Post, new { style = "display: inline;" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@kullanici.ID" />
+                                <button type="submit" onclick="return confirm('Bu kullanıcıyı silmek istediğinizden emin misiniz?');" style="background: none; border: none; color: brown; cursor: pointer; text-decoration: underline;">Sil</button>
+                            }
+                        }
+                        else
+                        {
+                            <span style="color: gray;">Admin</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>Henüz kayıtlı kullanıcı bulunmamaktadır.</p>
+    }
+</div>
+

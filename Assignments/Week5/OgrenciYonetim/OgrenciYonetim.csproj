@@ -100,12 +100,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\OgrenciController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\KitapController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Ogrenci.cs" />
-    <Compile Include="Models\OgrenciDB.cs" />
+    <Compile Include="Models\Kullanici.cs" />
+    <Compile Include="Models\KullaniciDB.cs" />
+    <Compile Include="Models\Kitap.cs" />
+    <Compile Include="Models\KitapDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -114,11 +119,20 @@
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Ogrenci\Index.cshtml" />
-    <Content Include="Views\Ogrenci\Create.cshtml" />
-    <Content Include="Views\Ogrenci\Edit.cshtml" />
-    <Content Include="Views\Ogrenci\Delete.cshtml" />
-    <Content Include="Views\Ogrenci\Details.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Home\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Kitaplar.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Kullanicilar.cshtml" />
+    <Content Include="Views\Admin\_ViewStart.cshtml" />
+    <Content Include="Views\Kitap\_ViewStart.cshtml" />
+    <Content Include="Views\Kitap\Index.cshtml" />
+    <Content Include="Views\Kitap\Create.cshtml" />
+    <Content Include="Views\Kitap\Edit.cshtml" />
+    <Content Include="Views\Kitap\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

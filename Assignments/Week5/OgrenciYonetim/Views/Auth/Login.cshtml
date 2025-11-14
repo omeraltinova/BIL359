@@ -1,0 +1,81 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Giriş - İMÜ Kütüphanesi</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")">
+</head>
+<body class="body">
+    <div id="login-container">
+        <div id="auth-grid">
+            <div id="login-card">
+                <h1 id="auth-text">Giriş</h1>
+                
+                @using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+                {
+                    <div class="field">
+                        <label for="kulad">Kullanıcı Adı</label>
+                        <input type="text" id="kulad" name="kulad" placeholder="Kullanıcı adınız" />
+                    </div>
+
+                    <div class="field">
+                        <label for="sifre">Şifre</label>
+                        <input type="password" id="sifre" name="sifre" placeholder="*******" />
+                    </div>
+
+                    <div class="auth-button">
+                        <button type="submit" class="btn">Giriş Yap</button>
+                    </div>
+
+                    if (ViewBag.Hata != null)
+                    {
+                        <div style="margin-top: 15px;">
+                            <p style="color: red; font-weight: 700;">@ViewBag.Hata</p>
+                        </div>
+                    }
+                }
+            </div>
+
+            <div id="register-card">
+                <h2 id="auth-text">Kayıt Ol</h2>
+                
+                @using (Html.BeginForm("Register", "Auth", FormMethod.Post))
+                {
+                    <div class="field">
+                        <label for="yeniKulad">Kullanıcı Adı</label>
+                        <input type="text" id="yeniKulad" name="yeniKulad" placeholder="Yeni kullanıcı adınız" />
+                    </div>
+                    
+                    <div class="field">
+                        <label for="yeniSifre">Şifre</label>
+                        <input type="password" id="yeniSifre" name="yeniSifre" placeholder="*******" />
+                    </div>
+                    
+                    <div class="auth-button">
+                        <button type="submit" class="btn">Kayıt Ol</button>
+                    </div>
+
+                    if (ViewBag.KayitHata != null)
+                    {
+                        <div style="margin-top: 15px;">
+                            <p style="color: red; font-weight: 700;">@ViewBag.KayitHata</p>
+                        </div>
+                    }
+                    
+                    if (ViewBag.KayitBasari != null)
+                    {
+                        <div style="margin-top: 15px;">
+                            <p style="color: green; font-weight: 700;">@ViewBag.KayitBasari</p>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

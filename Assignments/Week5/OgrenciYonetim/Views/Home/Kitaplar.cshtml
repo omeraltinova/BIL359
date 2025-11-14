@@ -1,0 +1,39 @@
+@model List<OgrenciYonetim.Models.Kitap>
+
+@{
+    ViewBag.Title = "Kitaplar";
+}
+
+<div style="padding: 20px;">
+    <p>Kitaplar sayfasına hoş geldiniz!</p>
+    
+    @if (ViewBag.Hata != null)
+    {
+        <p style="color: red; font-weight: 700;">@ViewBag.Hata</p>
+    }
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="book-table">
+            <tr class="baslik">
+                <td>ID</td>
+                <td>Kitap Adı</td>
+                <td>Yazar</td>
+            </tr>
+
+            @foreach (var kitap in Model)
+            {
+                <tr>
+                    <td>@kitap.ID</td>
+                    <td>@kitap.kitap_adi</td>
+                    <td>@kitap.yazar</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>Henüz kayıtlı kitap bulunmamaktadır.</p>
+    }
+</div>
+

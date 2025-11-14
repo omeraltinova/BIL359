@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - İMÜ Kütüphanesi</title>
+    <title>@ViewBag.Title - İMÜ Kütüphanesi - Yönetici Paneli</title>
     <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")">
 </head>
 <body class="body">
@@ -17,38 +17,29 @@
 
             <nav aria-label="Ana menü">
                 <ul class="menu">
-                    <li><a href="@Url.Action("Index", "Home")">Ana Sayfa</a></li>
-                    <li><a href="@Url.Action("Kitaplar", "Home")">Kitaplar</a></li>
-                    <li><a href="@Url.Action("About", "Home")">Hakkında</a></li>
+                    <li><a href="@Url.Action("Index", "Admin")">Admin Ana Sayfa</a></li>
+                    <li><a href="@Url.Action("Index", "Kitap")">Kitaplar Yönetimi</a></li>
+                    <li><a href="@Url.Action("Kullanicilar", "Admin")">Üyeler</a></li>
+                    <li><a href="@Url.Action("Logout", "Auth")">Çıkış</a></li>
                 </ul>
             </nav>
 
             <div id="login">
-                @if (Session["kullanici_adi"] != null)
-                {
-                    <span style="color: white; font-weight: bold; margin-right: 20px;">Hoş geldiniz, @Session["kullanici_adi"]</span>
-                    <a href="@Url.Action("Logout", "Auth")">Çıkış</a>
-                }
-                else
-                {
-                    <a href="@Url.Action("Login", "Auth")">Giriş</a>
-                    <span style="color: white; margin: 0 5px;">|</span>
-                    <a href="@Url.Action("Login", "Auth")">Kayıt Ol</a>
-                }
+                <span style="color: white; font-weight: bold;">Yönetici Paneli</span>
             </div>
         </div>
 
         <div id="content">
             @if (TempData["Basari"] != null)
             {
-                <div class="alert alert-success">
+                <div style="background-color: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border-radius: 12px; font-size: 18px; font-weight: 600;">
                     ✓ @TempData["Basari"]
                 </div>
             }
 
             @if (TempData["Hata"] != null)
             {
-                <div class="alert alert-error">
+                <div style="background-color: #f8d7da; color: #721c24; padding: 15px; margin-bottom: 20px; border-radius: 12px; font-size: 18px; font-weight: 600;">
                     ✗ @TempData["Hata"]
                 </div>
             }
